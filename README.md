@@ -30,7 +30,7 @@ As for the practical expansions of the method, a few are considered:
 
 Below is a picture of the ODE trajectories for the set of parameters closely matching the given (known) trajectory. This fit was attained using the combined matching in 1 minute and 1 CPU core on i7-12800H for a random initial point. For the reference, a comparable match using only trajectory matching (and a special treatment of the estimated objective surface, which we don't discuss further here and which is aimed at improving the speed to convergence) was obtained in 10 minutes of run time on 40 CPU cores in parallel using compiled version of the ODE system and compiled version of the ODE solver (via Julia bridge to Python using `diffeqpy`):
 
-![](CollocInfer.png | width=100)
+![](CollocInfer.png)
 
 Note how both the final ODE solution trajectory and spline shapes are plotted. It is typical to get the splines fitted very fast but that is not a guarantee of the ODE trajectories fitted all that fast too. Therefore, this is actually one point where the ODE system with the currently estimated parameters needs to be solved, and that is in between each of the two steps, merely for the validation of resulting trajectories. We would like to investigate further how selection of the spline basis could help get considerably closer to faster matching of the actual ODE trajectories to the tightness of the spline fitting, maybe without even needing to solve ODE for validation.
 
